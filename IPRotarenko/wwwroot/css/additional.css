@@ -1,0 +1,44 @@
+.contander_product{
+	margin: 10px 20px 10px 20px;
+}
+.category_left{
+	width: 300px;
+}
+.category_left h2{
+	font-family: 'Merriweather', serif;
+	text-align: center; 
+}
+.category_left a{
+	font-family: 'Lora', serif;
+	text-align: center; 
+
+}
+.panel-body a{
+
+	font-family: 'Lora', serif;
+	font-weight: bold;
+}
+.features_items h2{
+	font-family: 'Merriweather', serif;
+	text-align: center;
+}
+.single-products h2{
+	font-size: 24px;
+	font-family: 'Merriweather', serif;
+	text-align: center;
+}
+.single-products img{
+	height: 200px;
+	width: 200px;
+}
+.single-products a{
+	font-family: 'Lora', serif;
+	font-weight: bold;
+}
+.single-products a:hover{
+	background: #F9F6E4;
+}
+.single-products p{
+	font-family: 'Lora', serif;
+}
+

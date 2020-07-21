@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IPRotarenko.Controllers
-{ 
+{
     // Все начинаеться с контролера ... первый запрос идет сюда и вызавает действие ....
+   
     public class HomeController : Controller
     {
         //котролер есть действия который возращиют IActionResult или Задачу....
@@ -14,6 +15,7 @@ namespace IPRotarenko.Controllers
         //{
         //    return View();
         //}
+       
         public IActionResult Index()
         {
             return View();

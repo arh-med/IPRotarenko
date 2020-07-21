@@ -20,8 +20,9 @@
                     </div>
                     <h4><a href="#">Доставка продуктов</a> </h4>
                     <p>Доставляем ваш заказ до двери вашего дома. Работаем круглогодично без праздников и выходных.</p>
-                    <a class="link" href="#">Каталог продукции</a>
+                    <a asp-controller="Shop" asp-action="Index" class="link">Каталог продукции</a>
                 </div>
+
                 <!-- End Latest Products -->
                 <!-- Latest Products -->
                 <div class="col-sm-4 sm-margin-b-50">
@@ -29,7 +30,7 @@
                         <img class="img-responsive wow fadeIn"  src="~/img/970x647/02.jpg" alt="Latest Products Image" data-wow-duration=".3" data-wow-delay=".2s">
                     </div>
                     <h4><a href="#">Производство</a> <span style="color:darkgrey" class="text-info  margin-l-20">Предворительный заказ</span></h4>
-                    <p>Здесь вы можете заказать продукцию нашего производства. Мы приготовим для вас колбаски по фирменому рецепту , котлеты для бургеров, шашлык.  </p>
+                    <p>Здесь вы можете заказать продукцию нашего производства. Мы приготовим для вас колбаски по фирменому рецепту, котлеты для бургеров, шашлык.  </p>
                     <a class="link" href="#">Выбрать дату</a>
                 </div>
                 <!-- End Latest Products -->
@@ -39,7 +40,7 @@
                         <img class="img-responsive wow fadeIn"  src="~/img/970x647/03.jpg" alt="Latest Products Image" data-wow-duration=".3" data-wow-delay=".3s">
                     </div>
                     <h4><a href="#">Иные услуги</a> </h4>
-                    <p>Разделка мяса(свинина, говядина, курица, рыба). Аренда рефрижератора.</p>
+                    <p>Разделка мяса (свинина, говядина, курица, рыба). Аренда рефрижератора.</p>
                     <a class="link" href="#">Подробнее</a>
                 </div>
                 <!-- End Latest Products -->
@@ -51,111 +52,5 @@
     </div>
     <!-- End Products -->
     <!-- Service -->
-    <div id="document">
-        <div class="bg-color-sky-light" data-auto-height="true">
-            <div class="content-lg container">
-                <div class="row row-space-2">
-                    <div class="col-sm-4 sm-margin-b-4">
-                        <div class="service" data-height="height">
-                            <div class="service-element">
-                                <i class="service-icon icon-docs"></i>
-                            </div>
-                            <div class="service-info">
-                                <h3>Документация</h3>
-                                <p class="margin-b-5">Вы можете ознакомиться с документами магазина</p>
-                            </div>
-                            <a href="#" class="content-wrapper-link"></a>
-                        </div>
-                    </div>
-                    <div class="col-sm-4 sm-margin-b-4">
-                        <div class="service" data-height="height">
-                            <div class="service-element">
-                                <i class="service-icon icon-speedometer"></i>
-                            </div>
-                            <div class="service-info">
-                                <h3>Сроки доставки</h3>
-                                <p class="margin-b-5">Подробная информация о сроках и стоимости доставки</p>
-                            </div>
-                            <a href="#" class="content-wrapper-link"></a>
-                        </div>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="service" data-height="height">
-                            <div class="service-element">
-                                <i class="service-icon icon-badge"></i>
-                            </div>
-                            <div class="service-info">
-                                <h3>Отзывы</h3>
-                                <p class="margin-b-5">Хороших слов много не бывает!</p>
-                            </div>
-                            <a href="#" class="content-wrapper-link"></a>
-                        </div>
-                    </div>
-                </div>
-                <!--// end row -->
-            </div>
-        </div>
-    </div>
-    <!-- End Service -->
-    <!-- Promo Banner -->
-    <div class="promo-banner">
-        <div class="container-sm content-lg">
-            <h2 class="promo-banner-title">Цитата дня</h2>
-            <p class="promo-banner-text">Первейшее правило жизни с мужчиной: накорми его сразу же, как проснётся.</p>
-            <em class="promo-banner-text">Роберт Хайнлайн.</em>
-        </div>
-    </div>
-    <!-- End Promo Banner -->
-    <!-- Testimonials -->
-    <div class="content-md container">
-        <div class="row">
-            <div class="col-sm-9">
-                <h2>Отзывы</h2>
-
-                <!-- Swiper Testimonials -->
-                <div class="swiper-slider swiper-testimonials">
-                    <!-- Swiper Wrapper -->
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <blockquote class="blockquote">
-                                <div class="margin-b-20">
-                                    Большое спасибо Надежде за отличную работу,быструю доставку! 
-                                </div>
-                               
-                                <p><span class="fweight-700 color-link">Кирил Лилия</span></p>
-                            </blockquote>
-                        </div>
-                        <div class="swiper-slide">
-                            <blockquote class="blockquote">
-                                <div class="margin-b-20">
-                                    Всем, кто имел отношение к очередному нашему заказу, огромное семейное спасибо за профессионализм и заботу о покупателях! Всё отлично!!!
-                                </div>
-                               
-                                <p><span class="fweight-700 color-link">Блохина Анна</span></p>
-                            </blockquote>
-                        </div>
-                    </div>
-                    <!-- End Swiper Wrapper -->
-                    <!-- Pagination -->
-                    <div class="swiper-testimonials-pagination"></div>
-                </div>
-                <!-- End Swiper Testimonials -->
-            </div>
-        </div>
-        <!--// end row -->
-    </div>
-    <!-- End Testimonials -->
-    <!-- Contact -->
-    <div id="contact">
-        <!-- Google Map -->
-        @*<div class="gmap">
-            <div id="map" class="map height-400"></div>
-            <address class="gmap-address">
-                <p class="color-heading margin-b-0">277 Bedford Avenue, Brooklyn, NY 11211, New York, USA</p>
-            </address>
-        </div>*@
-        <!-- End Google Map -->
-    </div>
-    <!-- End Contact -->
-    <!--========== END PAGE LAYOUT ==========-->
+    
     
