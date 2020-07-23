@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using IPRotarenko.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IPRotarenko.Controllers
@@ -15,10 +16,10 @@ namespace IPRotarenko.Controllers
         //{
         //    return View();
         //}
-       
         public IActionResult Index()
         {
             return View();
         }
+      
     }
 }
