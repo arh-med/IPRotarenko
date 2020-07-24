@@ -9,6 +9,7 @@ namespace IPRotarenko.Infastructure.Interfaces
     public interface IProductData
     {
         IEnumerable<Section> GetSection();
+        IEnumerable<Product> GetProducts(ProductFilter Filter = null);
         
     }
 }
