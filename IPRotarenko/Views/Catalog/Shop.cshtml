@@ -1,11 +1,13 @@
-﻿@model CatalogViewModel
+﻿
+@model CatalogViewModel
 <section>
     <br />
     <div class="contander_product" id="service">
         <div class="row">
+           
             <partial name="Partial/_LeftSideBar" />
-            <partial name="Partial/_FeaturesItems" model="@Model.Products"/>
+            <partial name="Partial/_FeaturesItems" model="@Model.Products" />
         </div>
     </div>
-   
+
 </section>
