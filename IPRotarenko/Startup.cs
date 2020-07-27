@@ -12,6 +12,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using IPRotarenko.Controllers;
+using IPRotarenko.Data;
+using IPRotarenko.Infastructure.Services.InDataBase;
 
 namespace IPRotarenko
 {
@@ -26,14 +28,17 @@ namespace IPRotarenko
         {
             services.AddControllersWithViews().AddRazorRuntimeCompilation(); //добавление инфраструктуры MVC  и добавление пакета RazorRuntimeCompilation(ƒл€ динамического изменени€ Views)
             services.AddSingleton<IEmployeesData, InMemoryEmployeesData>();
-            services.AddSingleton<IProductData, InMemoryProductData>();
+            services.AddScoped<IProductData, MySqlProductData>();
             // AddTransient каждый раз будет создаватьс€ экземпл€р
             // AddScoped один экзнмпл€р на облать видимости 
             // AddSingleton одни обьект на все врем€ жизни приложени€ 
+            services.AddTransient<AppContextInitial>();
+            
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider ServiceProvider)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, AppContextInitial appContextInitial )
         {
+            appContextInitial.Initialize();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using IPRotarenko.Domain.Entities;
 using IPRotarenko.Infastructure.Interfaces;
+using IPRotarenko.Infastructure.Mapping;
 using IPRotarenko.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
@@ -29,14 +30,7 @@ namespace IPRotarenko.Controllers
             return View(new CatalogViewModel
             {
                 SectionId = SectionId,
-                Products = products.Select(p => new ProductViewModel
-                {
-                    Id = p.Id,
-                    Name = p.Name,
-                    Order = p.Order,
-                    Price = p.Price,
-                    ImageUrl = p.ImageUrl
-                }).OrderBy(p => p.Order)
+                Products = products.Select(ProductMapping.ToView).OrderBy(p => p.Order)
             });
         }
 
