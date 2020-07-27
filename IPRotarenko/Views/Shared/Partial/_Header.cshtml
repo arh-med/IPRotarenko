@@ -22,8 +22,9 @@
             <div class="collapse navbar-collapse nav-collapse">
                 <div class="menu-container">
                     <ul class="nav navbar-nav navbar-nav-right">
-                        <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#body">Главная</a></li>
-                        <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#service">Сервисы</a></li>
+                        <li class="js_nav-item nav-item"><a asp-controller="Home" asp-action="Index" class="nav-item-child nav-item-hover">Главная</a></li>
+                        <li class="js_nav-item nav-item"><a asp-controller="Home" asp-action="Index" asp-fragment="service" class="nav-item-child nav-item-hover">Сервисы</a></li>
+                        <li class="js_nav-item nav-item"><a asp-controller="Catalog" asp-action="Shop" asp-fragment="catalog" class="nav-item-child nav-item-hover">Магазин</a></li>
                         <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#document">Документы</a></li>
                         <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#contact">Контакты</a></li>
                     </ul>
@@ -38,7 +39,7 @@
     <div class="container">
         <div class="margin-b-40">
             <h1 class="promo-block-title">Доставка свежего мяса   </h1>
-            <p class="promo-block-text">и продукции собственного производства</p>
+            <p  id="catalog" class="promo-block-text">и продукции собственного производства</p>
         </div>
 
     </div>

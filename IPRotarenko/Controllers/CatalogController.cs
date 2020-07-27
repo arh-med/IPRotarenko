@@ -33,6 +33,14 @@ namespace IPRotarenko.Controllers
                 Products = products.Select(ProductMapping.ToView).OrderBy(p => p.Order)
             });
         }
+        public IActionResult Recipes()
+        {
+            return View();
+        }
+        public IActionResult Other()
+        {
+            return View();
+        }
 
     }
 }
