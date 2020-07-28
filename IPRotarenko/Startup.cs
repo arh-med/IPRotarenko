@@ -29,6 +29,8 @@ namespace IPRotarenko
             services.AddControllersWithViews().AddRazorRuntimeCompilation(); //добавление инфраструктуры MVC  и добавление пакета RazorRuntimeCompilation(ƒл€ динамического изменени€ Views)
             services.AddSingleton<IEmployeesData, InMemoryEmployeesData>();
             services.AddScoped<IProductData, MySqlProductData>();
+            services.AddScoped<IRecipeData, InMemoryRecipeData>();
+            services.AddScoped<IReviewSiteData, MySqlReviewSiteData>();
             // AddTransient каждый раз будет создаватьс€ экземпл€р
             // AddScoped один экзнмпл€р на облать видимости 
             // AddSingleton одни обьект на все врем€ жизни приложени€ 

@@ -10,7 +10,9 @@ namespace IPRotarenko.DAL.Context
     {
         public DbSet<Section> Sections { get; set; }
         public DbSet<Product> Products { get; set; }
-
+        public DbSet<Recipe> Recipes { get; set; }
+        public DbSet<RequestCall> RequestsCall { get; set; }
+        public DbSet<ReviewSite> ReviewsSite { get; set; }
         //private static ApplicationContext _instance; // статическое поле 
         //public static ApplicationContext Instance // данное свойство дайт доступ к безе данный с инициализацие только один раз 
         //{

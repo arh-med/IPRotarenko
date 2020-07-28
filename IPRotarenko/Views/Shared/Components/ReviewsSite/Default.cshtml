@@ -1,0 +1,41 @@
+﻿@model IEnumerable<ReviewSiteViewModel>
+<div class="swiper-slider swiper-testimonials">
+    <!-- Swiper Wrapper -->
+    <div class="swiper-wrapper">
+        @foreach (var review in Model)
+        {
+            <div class="swiper-slide">
+                <blockquote class="blockquote">
+                    <div class="margin-b-20">
+                        @review.Review
+                    </div>
+
+                    <p><span class="fweight-700 color-link">@review.Name</span></p>
+                </blockquote>
+            </div>
+        }
+
+
+        @*<div class="swiper-slide">
+            <blockquote class="blockquote">
+                <div class="margin-b-20">
+                    Большое спасибо Надежде за отличную работу,быструю доставку!
+                </div>
+
+                <p><span class="fweight-700 color-link">Кирил Лилия</span></p>
+            </blockquote>
+        </div>
+        <div class="swiper-slide">
+            <blockquote class="blockquote">
+                <div class="margin-b-20">
+                    Всем, кто имел отношение к очередному нашему заказу, огромное семейное спасибо за профессионализм и заботу о покупателях! Всё отлично!!!
+                </div>
+
+                <p><span class="fweight-700 color-link">Блохина Анна</span></p>
+            </blockquote>
+        </div>*@
+    </div>
+    <!-- End Swiper Wrapper -->
+    <!-- Pagination -->
+    <div class="swiper-testimonials-pagination"></div>
+</div>

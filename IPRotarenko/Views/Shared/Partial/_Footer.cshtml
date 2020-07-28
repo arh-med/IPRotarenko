@@ -11,7 +11,7 @@
                             <h3>Документация</h3>
                             <p class="margin-b-5">Вы можете ознакомиться с документами магазина</p>
                         </div>
-                        <a href="#" class="content-wrapper-link"></a>
+                        <a asp-controller="Home" asp-action="Documents" asp-fragment="catalog" class="content-wrapper-link"></a>
                     </div>
                 </div>
                 <div class="col-sm-4 sm-margin-b-4">
@@ -35,7 +35,7 @@
                             <h3>Отзывы</h3>
                             <p class="margin-b-5">Хороших слов много не бывает!</p>
                         </div>
-                        <a href="#" class="content-wrapper-link"></a>
+                        <a asp-controller="Home" asp-action="Reviews" asp-fragment="catalog" class="content-wrapper-link"></a>
                     </div>
                 </div>
             </div>
@@ -57,32 +57,7 @@
         <div class="col-sm-8">
             <h2>Отзывы</h2>
             <!-- Swiper Testimonials -->
-            <div class="swiper-slider swiper-testimonials">
-                <!-- Swiper Wrapper -->
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <blockquote class="blockquote">
-                            <div class="margin-b-20">
-                                Большое спасибо Надежде за отличную работу,быструю доставку!
-                            </div>
-
-                            <p><span class="fweight-700 color-link">Кирил Лилия</span></p>
-                        </blockquote>
-                    </div>
-                    <div class="swiper-slide">
-                        <blockquote class="blockquote">
-                            <div class="margin-b-20">
-                                Всем, кто имел отношение к очередному нашему заказу, огромное семейное спасибо за профессионализм и заботу о покупателях! Всё отлично!!!
-                            </div>
-
-                            <p><span class="fweight-700 color-link">Блохина Анна</span></p>
-                        </blockquote>
-                    </div>
-                </div>
-                <!-- End Swiper Wrapper -->
-                <!-- Pagination -->
-                <div class="swiper-testimonials-pagination"></div>
-            </div>
+           <vc:reviews-site/>
             <!-- End Swiper Testimonials -->
         </div>
         <div class="col-sm-4">
