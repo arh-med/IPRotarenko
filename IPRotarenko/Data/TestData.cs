@@ -107,5 +107,6 @@ namespace IPRotarenko.Data
                new RequestCall { Id = 2, Name = "Ольга Павловна", Phone="+798 203 85 95", Email="arh_med@mail.ru", Headline="Спасибо за заказ", Message="Спасибо"},
                new RequestCall {Id = 3, Name = "Ольга Павловна", Phone="+798 203 85 95", Email="arh_med@mail.ru", Headline="Спасибо за заказ", Message="Спасибо"},
          };
+        //Перенести 
     }
 }
