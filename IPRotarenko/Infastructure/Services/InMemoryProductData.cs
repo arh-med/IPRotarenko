@@ -10,6 +10,11 @@ namespace IPRotarenko.Infastructure.Services
 {
     public class InMemoryProductData : IProductData
     {
+        public Product GetProductById(int Id)
+        {
+            return TestData.Products.FirstOrDefault(p => p.Id == Id);
+        }
+
         public IEnumerable<Product> GetProducts(ProductFilter Filter = null)
         {
             var query = TestData.Products;

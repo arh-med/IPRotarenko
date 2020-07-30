@@ -10,6 +10,6 @@ namespace IPRotarenko.Infastructure.Interfaces
     {
         IEnumerable<Section> GetSection();
         IEnumerable<Product> GetProducts(ProductFilter Filter = null);
-        
+        Product GetProductById(int Id);
     }
 }
