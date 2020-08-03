@@ -16,6 +16,7 @@ namespace IPRotarenko.Infastructure.Mapping
             Order = p.Order,
             Price = p.Price,
             ImageUrl = p.ImageUrl,
+            SectionId = p.SectionId,
            
         };
 

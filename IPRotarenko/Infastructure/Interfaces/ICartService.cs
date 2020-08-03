@@ -21,5 +21,7 @@ namespace IPRotarenko.Infastructure.Interfaces
 
         CartViewModel TransformFromCart();
 
+       
+
     }
 }

@@ -1,10 +1,12 @@
-﻿
-@model CatalogViewModel
-<section >
+﻿@model CatalogViewModel
+@{
+    ViewData["Title"] = "Каталог";
+}
+<section>
     <br />
-    <div class="contander_product" >
+    <div class="contander_product">
         <div class="row">
-           
+
             <partial name="Partial/_LeftSideBar" />
             <partial name="Partial/_FeaturesItems" model="@Model.Products" />
         </div>

@@ -1,4 +1,7 @@
 ﻿@model CartOrderViewModel
+@{
+    ViewData["Title"] = "Корзина";
+}
 <div id="cart" class="container">
     <hr />
     <h2 class="title text-center">Корзина</h2>
@@ -24,7 +27,7 @@
                         {
                             <tr>
                                 <td class="cart_product">
-                                    <a href=""><img style="width: 100px;" src="~/img/product/G01.jpg" alt=""></a>
+                                    <a href=""><img style="width: 100px;" src="~/img/product/@product.ImageUrl" alt=""></a>
                                 </td>
                                 <td class="cart_description">
                                     <h4><a href="">@product.Name</a></h4>
@@ -60,35 +63,35 @@
                                 </td>
                             </tr>
                         }
-                    <tr>
-                        <td class="cart_product">
-                        </td>
-                        <td class="cart_description">
-                            <h5>Общая стоимость заказа</h5>
-                        </td>
-                        <td class="cart_price">
-                        </td>
-                        <td class="cart_quantity">
-                        </td>
-                        <td class="cart_total">
-                            @{
-                                decimal total = 0;
-                                foreach (var (product, quantity) in Model.CartViewModel.Items)
-                                {
-                                    decimal sum = (product.Price * quantity);
-                                    total = total + sum;
-                                }
+                        <tr>
+                            <td class="cart_product">
+                            </td>
+                            <td class="cart_description">
+                                <h5>Общая стоимость заказа</h5>
+                            </td>
+                            <td class="cart_price">
+                            </td>
+                            <td class="cart_quantity">
+                            </td>
+                            <td class="cart_total">
+                                @{
+                                    decimal total = 0;
+                                    foreach (var (product, quantity) in Model.CartViewModel.Items)
+                                    {
+                                        decimal sum = (product.Price * quantity);
+                                        total = total + sum;
+                                    }
 
-                                <p class="cart_total_price">@total.ToString("C")</p>
-                            }
-                        </td>
-                        <td class="cart_description">
-                        </td>
-                        <td class="cart_description">
-                        </td>
-                        <td class="cart_description">
-                        </td>
-                    </tr>
+                                    <p class="cart_total_price">@total.ToString("C")</p>
+                                }
+                            </td>
+                            <td class="cart_description">
+                            </td>
+                            <td class="cart_description">
+                            </td>
+                            <td class="cart_description">
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
                 <hr />
@@ -98,7 +101,7 @@
 
     <section id="do_action">
         <div class="container">
-          <partial name="Partial/_CheckOut" model="@Model.OrderViewModel" view-data="@(new ViewDataDictionary(ViewData) { { "SumCart", total} })"/>
+            <partial name="Partial/_CheckOut" model="@Model.OrderViewModel" view-data="@(new ViewDataDictionary(ViewData) { { "SumCart", total} })" />
         </div>
     </section>
 </div>

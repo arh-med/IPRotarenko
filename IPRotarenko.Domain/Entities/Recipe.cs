@@ -11,6 +11,7 @@ namespace IPRotarenko.Domain.Entities
     {
         public int Order { get; set; }
         public int? ParentId { get; set; }
+        public string ImageUrl { get; set; }
         [ForeignKey(nameof(ParentId))]
         public virtual Section ParentSection { get; set; }
 
