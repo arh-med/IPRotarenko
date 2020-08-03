@@ -34,6 +34,7 @@ namespace IPRotarenko
             services.AddScoped<IReviewSiteData, MySqlReviewSiteData>();
             services.AddHttpContextAccessor();
             services.AddScoped<ICartService, CookiesCartService>();
+            services.AddScoped<IOrderService, MySqlOrderService>();
             // AddTransient каждый раз будет создаватьс€ экземпл€р
             // AddScoped один экзнмпл€р на облать видимости 
             // AddSingleton одни обьект на все врем€ жизни приложени€ 

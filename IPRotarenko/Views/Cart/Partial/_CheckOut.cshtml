@@ -1,0 +1,47 @@
+﻿@model IPRotarenko.ViewModels.Orders.OrderViewModel
+
+<form method="post" asp-controller="Cart" asp-action="CheckOut" asp-antiforgery="true">
+    <div class="row">
+
+        <div class="col-sm-12">
+            <div asp-validation-summary="ModelOnly" class="text-danger">
+
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="sr-only"></label>
+                <input asp-for="Name" class="form-control" placeholder="Имя" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Phone" class="sr-only"></label>
+                <input asp-for="Phone" class="form-control" placeholder="Телефон" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Adress" class="sr-only"></label>
+                <input asp-for="Adress" class="form-control" placeholder="Адрес" />
+                <span asp-validation-for="Adress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="sr-only"></label>
+                <input asp-for="Email" class="form-control" placeholder="Почта" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            @{
+                ViewData.TryGetValue("SumCart", out var total);
+            }
+            @if ((total as decimal?) > 0)
+            {
+                <div class="total_area">
+                   
+                    <input class="btn btn-default check_out" type="submit" value="Офромить" />
+                </div>
+            }
+
+        </div>
+    </div>
+</form>

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using IPRotarenko.Infastructure.Interfaces;
+using IPRotarenko.ViewModels;
+using IPRotarenko.ViewModels.Orders;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IPRotarenko.Controllers
@@ -16,7 +18,12 @@ namespace IPRotarenko.Controllers
         }
         public IActionResult Details()
         {
-            return View(_CartService.TransformFromCart());
+            return View(new CartOrderViewModel
+            {
+                CartViewModel = _CartService.TransformFromCart(),
+                OrderViewModel = new OrderViewModel()
+            }
+            ) ;
         }
         public IActionResult AddToCart(int Id)
         {
@@ -47,6 +54,23 @@ namespace IPRotarenko.Controllers
             return RedirectToAction(nameof(Details));
 
         }
+        public IActionResult CheckOut(OrderViewModel Model, [FromServices] IOrderService OrderService)
+        {
+            if (!ModelState.IsValid)
+                return View(nameof(Details), new CartOrderViewModel 
+                {
+                    CartViewModel = _CartService.TransformFromCart(),
+                    OrderViewModel = Model
+                });
+            var order = OrderService.CreateOrder(_CartService.TransformFromCart(), Model);
+            _CartService.RemoveAll();
+            return RedirectToAction(nameof(OrderConfirmed), new { id = order.Id});
+        }
+        public IActionResult OrderConfirmed(int id)
+        {
+            ViewBag.OrderId = id;
+            return View();
 
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿@model CartViewModel
+﻿@model CartOrderViewModel
 <div id="cart" class="container">
     <hr />
     <h2 class="title text-center">Корзина</h2>
@@ -20,7 +20,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var (product, quantity) in Model.Items)
+                        @foreach (var (product, quantity) in Model.CartViewModel.Items)
                         {
                             <tr>
                                 <td class="cart_product">
@@ -42,21 +42,21 @@
                                     <p class="cart_total_price">@((product.Price * quantity).ToString("C"))</p>
                                 </td>
                                 <td class="cart_description">
-                                    <h6><a asp-controller="Cart" asp-action="AddFromCart" asp-route-id="@product.Id" asp-route-count="0.1" asp-fragment="catalog"><i class="glyphicon glyphicon-plus" aria-hidden="true"></i> 100 гр.</a></h6>
-                                    <h6><a asp-controller="Cart" asp-action="AddFromCart" asp-route-id="@product.Id" asp-route-count="0.5" asp-fragment="catalog"><i class="glyphicon glyphicon-plus" aria-hidden="true"></i> 500 гр.</a></h6>
-                                    <h6><a asp-controller="Cart" asp-action="AddFromCart" asp-route-id="@product.Id" asp-route-count="1" asp-fragment="catalog"><i class="glyphicon glyphicon-plus" aria-hidden="true"></i> 1 кг.</a></h6>
+                                    <h6><a asp-controller="Cart" asp-action="AddFromCart" asp-route-id="@product.Id" asp-route-count="0.1" asp-fragment="catalog"><i class="glyphicon glyphicon-chevron-up" aria-hidden="true"></i> 100 гр.</a></h6>
+                                    <h6><a asp-controller="Cart" asp-action="AddFromCart" asp-route-id="@product.Id" asp-route-count="0.5" asp-fragment="catalog"><i class="glyphicon glyphicon-chevron-up" aria-hidden="true"></i> 500 гр.</a></h6>
+                                    <h6><a asp-controller="Cart" asp-action="AddFromCart" asp-route-id="@product.Id" asp-route-count="1" asp-fragment="catalog"><i class="glyphicon glyphicon-chevron-up" aria-hidden="true"></i> 1 кг.</a></h6>
                                 </td>
                                 <td class="cart_description">
-                                    <h6><a asp-controller="Cart" asp-action="DecrementFromCart" asp-route-id="@product.Id" asp-route-count="0.1" asp-fragment="catalog"><i class="glyphicon glyphicon-minus" aria-hidden="true"></i> 100 гр.</a></h6>
-                                    <h6><a asp-controller="Cart" asp-action="DecrementFromCart" asp-route-id="@product.Id" asp-route-count="0.5" asp-fragment="catalog"><i class="glyphicon glyphicon-minus" aria-hidden="true"></i> 500 гр.</a></h6>
-                                    <h6><a asp-controller="Cart" asp-action="DecrementFromCart" asp-route-id="@product.Id" asp-route-count="1" asp-fragment="catalog"><i class="glyphicon glyphicon-minus" aria-hidden="true"></i> 1 кг.</a></h6>
+                                    <h6><a asp-controller="Cart" asp-action="DecrementFromCart" asp-route-id="@product.Id" asp-route-count="0.1" asp-fragment="catalog"><i class="glyphicon glyphicon-chevron-down" aria-hidden="true"></i> 100 гр.</a></h6>
+                                    <h6><a asp-controller="Cart" asp-action="DecrementFromCart" asp-route-id="@product.Id" asp-route-count="0.5" asp-fragment="catalog"><i class="glyphicon glyphicon-chevron-down" aria-hidden="true"></i> 500 гр.</a></h6>
+                                    <h6><a asp-controller="Cart" asp-action="DecrementFromCart" asp-route-id="@product.Id" asp-route-count="1" asp-fragment="catalog"><i class="glyphicon glyphicon-chevron-down" aria-hidden="true"></i> 1 кг.</a></h6>
                                 </td>
 
 
                                 <td class="cart_delete">
-                                    <h5>
+                                    <h4>
                                         <a class="text-danger" asp-controller="Cart" asp-action="RemoveFromCart" asp-route-id="@product.Id" asp-fragment="catalog"><i class="glyphicon glyphicon-remove-sign" aria-hidden="true"></i></a>
-                                    </h5>
+                                    </h4>
                                 </td>
                             </tr>
                         }
@@ -73,7 +73,7 @@
                         <td class="cart_total">
                             @{
                                 decimal total = 0;
-                                foreach (var (product, quantity) in Model.Items)
+                                foreach (var (product, quantity) in Model.CartViewModel.Items)
                                 {
                                     decimal sum = (product.Price * quantity);
                                     total = total + sum;
@@ -98,82 +98,9 @@
 
     <section id="do_action">
         <div class="container">
-            <div class="heading">
-                <h3>Что бы Вы хотели сделать далее?</h3>
-                <p>Выберите, есть ли у вас код скидки или бонусные баллы, которые вы хотите использовать или хотите оценить стоимость доставки.</p>
-            </div>
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="chose_area">
-                        <ul class="user_option">
-                            <li>
-                                <input type="checkbox">
-                                <label>Использовать купон</label>
-                            </li>
-                            <li>
-                                <input type="checkbox">
-                                <label>Использовать подарочный сертификат</label>
-                            </li>
-                            <li>
-                                <input type="checkbox">
-                                <label>Расчитать доставку и налоги</label>
-                            </li>
-                        </ul>
-                        <ul class="user_info">
-                            <li class="single_field">
-                                <label>Страна:</label>
-                                <select>
-                                    <option>Россия</option>
-                                    <option>Украина</option>
-                                    <option>Белоруссия</option>
-                                    <option>США</option>
-                                    <option>Бангладеш</option>
-                                    <option>Великобритания</option>
-                                    <option>Индия</option>
-                                    <option>Пакистан</option>
-                                    <option>Канада</option>
-                                    <option>Дубаи</option>
-                                </select>
-
-                            </li>
-                            <li class="single_field">
-                                <label>Region / State:</label>
-                                <select>
-                                    <option>Выбор</option>
-                                    <option>Dhaka</option>
-                                    <option>London</option>
-                                    <option>Dillih</option>
-                                    <option>Lahore</option>
-                                    <option>Alaska</option>
-                                    <option>Canada</option>
-                                    <option>Dubai</option>
-                                </select>
-
-                            </li>
-                            <li class="single_field zip-field">
-                                <label>Индекс:</label>
-                                <input type="text">
-                            </li>
-                        </ul>
-                        <a class="btn btn-default update" href="">Получить письмо</a>
-                        <a class="btn btn-default check_out" href="">Продолжить</a>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="total_area">
-                        <ul>
-                            <li>Подитог корзины <span>$59</span></li>
-                            <li>Налог <span>$2</span></li>
-                            <li>Доставка <span>Free</span></li>
-                            <li>Итого <span>$61</span></li>
-                        </ul>
-                        <a class="btn btn-default update" href="">Обновить</a>
-                        <a class="btn btn-default check_out" href="">Офромить</a>
-                    </div>
-                </div>
-            </div>
+          <partial name="Partial/_CheckOut" model="@Model.OrderViewModel" view-data="@(new ViewDataDictionary(ViewData) { { "SumCart", total} })"/>
         </div>
-    </section><!--/#do_action-->
+    </section>
 </div>
 
 
