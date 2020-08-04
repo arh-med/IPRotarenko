@@ -19,6 +19,7 @@ namespace IPRotarenko.Controllers
         //}
         public IActionResult Index()
         {
+           
             return View();
         }
         public IActionResult Delivery()

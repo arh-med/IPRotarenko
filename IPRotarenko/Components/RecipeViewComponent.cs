@@ -27,7 +27,9 @@ namespace IPRotarenko.Components
             {
                 Id = s.Id,
                 Name = s.Name,
-                Order = s.Order
+                Order = s.Order,
+                ImageUrl=s.ImageUrl
+                
             }).ToList();
             foreach (var parent_recipe in parent_recipes_views)
             {

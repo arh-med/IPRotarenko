@@ -28,6 +28,7 @@ namespace IPRotarenko.Controllers
         public IActionResult AddToCart(int Id)
         {
             _CartService.AddToCart(Id);
+           
             return new NoContentResult();
         }
         public IActionResult DecrementFromCart(int Id, decimal count)

@@ -79,17 +79,17 @@ namespace IPRotarenko.Data
 
         public static IEnumerable<Recipe> Recipes { get; } = new[]
        {
-               new Recipe { Id = 1, Name = "Котлеты для бургеров", Order = 0 },
+               new Recipe { Id = 1, Name = "Котлеты для бургеров", Order = 0, ImageUrl="burger_iz_mramornoy_govyadiny.jpg" },
                new Recipe { Id = 2, Name = "говяжий фарш – 300 г", Order = 0, ParentId = 1 },
                new Recipe { Id = 3, Name = "свиной фарш – 100 г", Order = 1, ParentId = 1 },
                new Recipe { Id = 4, Name = "соль и черный молотый перец – по вкусу", Order = 2, ParentId = 1 },
                new Recipe { Id = 5, Name = "растительное масло – 0,5 ст. л.", Order = 3, ParentId = 1 },
-               new Recipe { Id = 6, Name = "Домашнии колбаски", Order = 1 },
+               new Recipe { Id = 6, Name = "Домашнии колбаски", Order = 1, ImageUrl="kolbaski_kurinye.jpg" },
                new Recipe { Id = 7, Name = "50 г консервированных шампиньонов", Order = 0, ParentId = 6 },
                new Recipe { Id = 8, Name = "фарш из говядины и свинины", Order = 1, ParentId = 6 },
                new Recipe { Id = 9, Name = "соль и черный молотый перец – по вкусу", Order = 2, ParentId = 6 },
                new Recipe { Id = 10, Name = "растительное масло – 0,5 ст. л.", Order = 3, ParentId = 6 },
-               new Recipe { Id = 11, Name = "Купаты", Order = 2 },
+               new Recipe { Id = 11, Name = "Купаты", Order = 2, ImageUrl="kolbaski_svinye.jpg" },
                new Recipe { Id = 12, Name = "говяжий фарш – 300 г", Order = 0, ParentId = 11 },
                new Recipe { Id = 13, Name = "свиной фарш – 100 г ", Order = 1, ParentId = 11 },
                new Recipe { Id = 14, Name = "соль и черный молотый перец – по вкусу", Order = 2, ParentId = 11 },

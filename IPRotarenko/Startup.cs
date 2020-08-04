@@ -30,7 +30,7 @@ namespace IPRotarenko
             services.AddControllersWithViews().AddRazorRuntimeCompilation(); //добавление инфраструктуры MVC  и добавление пакета RazorRuntimeCompilation(Для динамического изменения Views)
             services.AddSingleton<IEmployeesData, InMemoryEmployeesData>();
             services.AddScoped<IProductData, MySqlProductData>();
-            services.AddScoped<IRecipeData, InMemoryRecipeData>();
+            services.AddScoped<IRecipeData, MySqlRecipeData>();
             services.AddScoped<IReviewSiteData, MySqlReviewSiteData>();
             services.AddHttpContextAccessor();
             services.AddScoped<ICartService, CookiesCartService>();
