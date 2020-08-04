@@ -22,6 +22,7 @@ namespace IPRotarenko.Domain.Entities
         public bool Showcase { get; set; }
         public bool Availability { get; set; }
         public bool Divider { get; set; }
+        public bool Discount { get; set; }
         //public virtual ICollection<Section> Sections {get;set; }
     }
 }

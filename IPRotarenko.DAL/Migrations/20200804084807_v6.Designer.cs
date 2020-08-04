@@ -3,14 +3,16 @@ using System;
 using IPRotarenko.DAL.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace IPRotarenko.DAL.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20200804084807_v6")]
+    partial class v6
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -80,9 +82,6 @@ namespace IPRotarenko.DAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<bool>("Availability")
-                        .HasColumnType("tinyint(1)");
-
-                    b.Property<bool>("Discount")
                         .HasColumnType("tinyint(1)");
 
                     b.Property<bool>("Divider")
@@ -181,9 +180,6 @@ namespace IPRotarenko.DAL.Migrations
                     b.Property<string>("Deliveri")
                         .IsRequired()
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<bool>("Display")
-                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("Email")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");

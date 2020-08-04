@@ -14,5 +14,6 @@ namespace IPRotarenko.Domain.Entities
         [Required]
         public string Review { get; set; }
         public int Stars { get; set; }
+        public bool Display { get; set; }
     }
 }
