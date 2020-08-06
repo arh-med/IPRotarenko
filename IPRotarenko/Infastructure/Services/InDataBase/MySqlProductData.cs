@@ -18,6 +18,12 @@ namespace IPRotarenko.Infastructure.Services.InDataBase
             ApplicationContext applicationContext = new ApplicationContext();
             this.applicationContext = applicationContext;
         }
+
+        public Product GetProductById(int Id)
+        {
+           return applicationContext.Products.Include(p => p.Section).FirstOrDefault(p => p.Id == Id);
+        }
+
         public IEnumerable<Product> GetProducts(ProductFilter Filter = null)
         {
             List<Product> products = new List<Product>(applicationContext.Products.ToList());
@@ -41,6 +47,22 @@ namespace IPRotarenko.Infastructure.Services.InDataBase
                     resul.Add(product);
                 }
             }
+            if (Filter?.Ids?.Count > 0)
+            {
+                foreach (var item in Filter.Ids)
+                {
+                    foreach (var product in products)
+                    {
+                        if (product.Id == item)
+                        {
+                            resul.Add(product);
+
+                        }
+                    }
+                }
+            }
+            
+            
 
             return resul;
 

@@ -17,10 +17,12 @@ namespace IPRotarenko.Data
         }
         public void Initialize()
         {
-            if (applicationContext.Products.Any()) return;
-            applicationContext.Sections.AddRange(TestData.Sections);
+            if (applicationContext.Recipes.Any()) return;
+            applicationContext.Recipes.AddRange(TestData.Recipes);
             applicationContext.SaveChanges();
-            applicationContext.Products.AddRange(TestData.Products);
+            applicationContext.RequestsCall.AddRange(TestData.Requests);
+            applicationContext.SaveChanges();
+            applicationContext.ReviewsSite.AddRange(TestData.Reviews);
             applicationContext.SaveChanges();
         }
         

@@ -1,0 +1,33 @@
+﻿@model IEnumerable<RecipeViewModel>
+<div class="features_items">
+    <!--features_items-->
+    <hr />
+    <h2 class="title text-center">Рецепты</h2>
+    <hr />
+    @foreach (var parent_recipe in Model)
+    {
+        <div class="col-sm-4">
+            <div class="product-image-wrapper">
+                <div class="single-products">
+                    <div class="productinfo text-center">
+                        <img src="~/img/product/@parent_recipe.ImageUrl" alt="Товар" />
+                        <h2>@parent_recipe.Name</h2>
+                        <p>
+                            <strong>Ингредиенты:</strong><br />
+                            @foreach (var child_recipe in parent_recipe.ChildRecipe)
+                            {
+                                @child_recipe.Name <br />
+                            }
+                        </p>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    }
+</div>
+
+
+

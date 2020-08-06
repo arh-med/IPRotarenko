@@ -7,5 +7,6 @@ namespace IPRotarenko.Domain.Entities
     public class ProductFilter
     {
         public int? SectionId { get; set; }
+        public List<int> Ids { get; set; }
     }
 }

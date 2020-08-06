@@ -19,6 +19,10 @@ namespace IPRotarenko.Domain.Entities
         public string ImageUrl { get; set; }
         [Column(TypeName = "decimal(18,2)")]
         public decimal Price { get; set; }
+        public bool Showcase { get; set; }
+        public bool Availability { get; set; }
+        public bool Divider { get; set; }
+        public bool Discount { get; set; }
         //public virtual ICollection<Section> Sections {get;set; }
     }
 }

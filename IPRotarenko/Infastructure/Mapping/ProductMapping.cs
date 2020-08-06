@@ -9,16 +9,31 @@ namespace IPRotarenko.Infastructure.Mapping
 {
     public static class ProductMapping
     {
-        public static ProductViewModel ToView(this Product p )
+        public static ProductViewModel ToView(this Product p) => new ProductViewModel
         {
-            return new ProductViewModel
-            {
-                Id = p.Id,
-                Name = p.Name,
-                Order = p.Order,
-                Price = p.Price,
-                ImageUrl = p.ImageUrl
-            };
-        }
+            Id = p.Id,
+            Name = p.Name,
+            Order = p.Order,
+            Price = p.Price,
+            ImageUrl = p.ImageUrl,
+            SectionId = p.SectionId,
+           
+        };
+
+        public static IEnumerable<ProductViewModel> ToView(this IEnumerable<Product> p) => p.Select(ToView);
+
+        //public static ProductViewModel ToView(this Product p )
+        //{
+        //    return new ProductViewModel
+        //    {
+        //        Id = p.Id,
+        //        Name = p.Name,
+        //        Order = p.Order,
+        //        Price = p.Price,
+        //        ImageUrl = p.ImageUrl
+        //    };
+
+        //}
     }
+    
 }

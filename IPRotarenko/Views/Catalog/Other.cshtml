@@ -1,0 +1,45 @@
+﻿@model RequestCallViewModel
+@{
+    ViewData["Title"] = "Иные услуги";
+}
+<div class="container">
+    <div class="col-sm-12">
+        <div class="contact-form">
+            <hr />
+            <h2 class="title text-center">Заказать обратный звонок</h2>
+            <hr />
+            <div class="text-center">
+                <p>Заполните пожалуйста форму и вкратце опишете ваше пожелание. Мы свяжемся с вами в ближайшие время.</p>
+            </div>
+            <div class="status alert alert-success" style="display: none"></div>
+            <form asp-action="Other" id="main-contact-form" class="contact-form row" name="contact-form" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input asp-for="Id" type="hidden" />
+                <div class="form-group col-md-4">
+                    <input asp-for="Name" class="form-control" placeholder="Имя">
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <input asp-for="Phone" class="form-control" placeholder="Телефон">
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <input asp-for="Email" class="form-control" placeholder="Почта ">
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-12">
+                    <input asp-for="Headline" class="form-control" placeholder="Тема ">
+                    <span asp-validation-for="Headline" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-12">
+                    <textarea asp-for="Message" id="message" class="form-control" rows="8" placeholder="Ваше Сообщение "></textarea>
+                    <span asp-validation-for="Message" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-12">
+                    <input type="submit" name="submit" class="btn btn-primary pull-right" value="Отправить">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

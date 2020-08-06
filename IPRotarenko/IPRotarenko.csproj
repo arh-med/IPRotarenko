@@ -15,10 +15,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\img\clients\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\IPRotarenko.DAL\IPRotarenko.DAL.csproj" />
     <ProjectReference Include="..\IPRotarenko.Domain\IPRotarenko.Domain.csproj" />
   </ItemGroup>

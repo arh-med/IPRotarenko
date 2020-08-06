@@ -15,16 +15,34 @@
 <!-- END HEAD -->
 <!-- BODY -->
 <body id="body" data-spy="scroll" data-target=".header">
+    <script>
+        window.ReadCookie = function (cname) {
+            var name = cname + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+    </script>
     <!--========== HEADER ==========-->
     <partial name="Partial/_Header" />
     <!--========== END HEADER ==========-->
     <!--========== PAGE LAYOUT ==========-->
     @RenderBody()
     <!--========== FOOTER ==========-->
-   <partial name="Partial/_Footer" />
+    <partial name="Partial/_Footer" />
     <!--========== END FOOTER ==========-->
     <!-- SCRIPTS -->
     <partial name="Partial/_Scripts" />
+
     <!-- END SCRIPTS -->
 </body>
 <!-- END BODY -->

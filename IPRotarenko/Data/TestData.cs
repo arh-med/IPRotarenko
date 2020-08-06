@@ -51,7 +51,7 @@ namespace IPRotarenko.Data
                new Section { Id = 8, Name = "Индейка", Order = 1, ParentId = 6 },
                new Section { Id = 9, Name = "Утка", Order = 2, ParentId = 6 },
                new Section { Id = 10, Name = "Перепелка", Order = 3, ParentId = 6 },
-               new Section { Id = 11, Name = " Кулинария и шашлык", Order = 2 },
+               new Section { Id = 11, Name = "Кулинария и шашлык", Order = 2 },
                new Section { Id = 12, Name = "Кулинария", Order = 0, ParentId = 11 },
                new Section { Id = 13, Name = "Шашлык", Order = 1, ParentId = 11 },
                new Section { Id = 14, Name = "Колбаски", Order = 2, ParentId = 11 },
@@ -76,5 +76,37 @@ namespace IPRotarenko.Data
              new Product { Id = 11, Name = "Сердце говяжье", Price = 285, ImageUrl = "G01.jpg", Order = 10, SectionId = 4},
              new Product { Id = 12, Name = "Бедро куриное", Price = 315, ImageUrl = "G01.jpg", Order = 11, SectionId = 7},
          };
+
+        public static IEnumerable<Recipe> Recipes { get; } = new[]
+       {
+               new Recipe { Id = 1, Name = "Котлеты для бургеров", Order = 0, ImageUrl="burger_iz_mramornoy_govyadiny.jpg" },
+               new Recipe { Id = 2, Name = "говяжий фарш – 300 г", Order = 0, ParentId = 1 },
+               new Recipe { Id = 3, Name = "свиной фарш – 100 г", Order = 1, ParentId = 1 },
+               new Recipe { Id = 4, Name = "соль и черный молотый перец – по вкусу", Order = 2, ParentId = 1 },
+               new Recipe { Id = 5, Name = "растительное масло – 0,5 ст. л.", Order = 3, ParentId = 1 },
+               new Recipe { Id = 6, Name = "Домашнии колбаски", Order = 1, ImageUrl="kolbaski_kurinye.jpg" },
+               new Recipe { Id = 7, Name = "50 г консервированных шампиньонов", Order = 0, ParentId = 6 },
+               new Recipe { Id = 8, Name = "фарш из говядины и свинины", Order = 1, ParentId = 6 },
+               new Recipe { Id = 9, Name = "соль и черный молотый перец – по вкусу", Order = 2, ParentId = 6 },
+               new Recipe { Id = 10, Name = "растительное масло – 0,5 ст. л.", Order = 3, ParentId = 6 },
+               new Recipe { Id = 11, Name = "Купаты", Order = 2, ImageUrl="kolbaski_svinye.jpg" },
+               new Recipe { Id = 12, Name = "говяжий фарш – 300 г", Order = 0, ParentId = 11 },
+               new Recipe { Id = 13, Name = "свиной фарш – 100 г ", Order = 1, ParentId = 11 },
+               new Recipe { Id = 14, Name = "соль и черный молотый перец – по вкусу", Order = 2, ParentId = 11 },
+               new Recipe { Id = 15, Name = "растительное масло – 0,5 ст. л. ", Order = 3, ParentId = 11 },
+         };
+        public static IEnumerable<ReviewSite> Reviews { get; } = new[]
+       {
+               new ReviewSite { Id = 1, Name = "Ольга Павловна", Deliveri="№35245", Email="arh_med@mail.ru", Review="Спасибо за заказ", Stars=5 },
+               new ReviewSite { Id = 2, Name = "Ольга Павловна", Deliveri="№35245", Email="arh_med@mail.ru", Review="Спасибо за заказ", Stars=5},
+               new ReviewSite {Id = 3, Name = "Ольга Павловна", Deliveri="№35245", Email="arh_med@mail.ru", Review="Спасибо за заказ", Stars=5},
+         };
+        public static IEnumerable<RequestCall> Requests { get; } = new[]
+       {
+               new RequestCall { Id = 1, Name = "Ольга Павловна", Phone="+798 203 85 95", Email="arh_med@mail.ru", Headline="Спасибо за заказ", Message="Спасибо" },
+               new RequestCall { Id = 2, Name = "Ольга Павловна", Phone="+798 203 85 95", Email="arh_med@mail.ru", Headline="Спасибо за заказ", Message="Спасибо"},
+               new RequestCall {Id = 3, Name = "Ольга Павловна", Phone="+798 203 85 95", Email="arh_med@mail.ru", Headline="Спасибо за заказ", Message="Спасибо"},
+         };
+        //Перенести 
     }
 }

@@ -1,0 +1,56 @@
+﻿@model ReviewSiteViewModel
+@{
+    ViewData["Title"] = "Отзывы";
+}
+<div class="container">
+    <div class="col-sm-12">
+        <div class="contact-form">
+            <hr />
+            <h2 class="title text-center">Отзыв о магазине</h2>
+            <hr />
+            <div class="status alert alert-success" style="display: none"></div>
+            <form asp-action="Reviews" id="main-contact-form" class="contact-form row" name="contact-form" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input asp-for="Id" type="hidden" />
+                <div class="form-group col-md-12 ">
+                    <p>Общая оценка</p>
+                    <div id="reviewStars-input">
+                        <input id="star-4" type="radio" name="reviewStars" />
+                        <label title="gorgeous" for="star-4"></label>
+
+                        <input id="star-3" type="radio" name="reviewStars" />
+                        <label title="good" for="star-3"></label>
+
+                        <input id="star-2" type="radio" name="reviewStars" />
+                        <label title="regular" for="star-2"></label>
+
+                        <input id="star-1" type="radio" name="reviewStars" />
+                        <label title="poor" for="star-1"></label>
+
+                        <input id="star-0" type="radio" name="reviewStars" />
+                        <label title="bad" for="star-0"></label>
+                    </div>
+                </div>
+                <div class="form-group col-md-4">
+                    <input asp-for="Name" class="form-control" placeholder="Имя">
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <input asp-for="Deliveri" class="form-control" placeholder="№ заказа">
+                    <span asp-validation-for="Deliveri" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <input asp-for="Email" class="form-control" placeholder="Почта">
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-12">
+                    <textarea asp-for="Review" id="message" class="form-control" rows="8" placeholder="Отзыв"></textarea>
+                    <span asp-validation-for="Review" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-12">
+                    <input type="submit" name="submit" class="btn btn-primary pull-right" value="Отправить">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

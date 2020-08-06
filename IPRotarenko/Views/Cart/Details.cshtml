@@ -1,0 +1,110 @@
+﻿@model CartOrderViewModel
+@{
+    ViewData["Title"] = "Корзина";
+    
+}
+<div id="cart" class="container">
+    <hr />
+    <h2 class="title text-center">Корзина</h2>
+    <hr />
+    <section id="cart_items">
+        <div class="container">
+            <div class="table-responsive cart_info">
+                <table class="table">
+                    <thead>
+                        <tr class="cart_menu">
+                            <td class="image"><p></p></td>
+                            <td class="description"><p>Описание</p></td>
+                            <td class="price"><p>Цена</p></td>
+                            <td class="quantity"><p>Количество</p></td>
+                            <td class="total"><p>Итого</p></td>
+                            <td class="description"><p>Добавить</p></td>
+                            <td class="description"><p>Убрать</p></td>
+                            <td class="description"><p></p></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var (product, quantity) in Model.CartViewModel.Items)
+                        {
+                            <tr>
+                                <td class="cart_product">
+                                    <a href=""><img style="width: 100px;" src="~/img/product/@product.ImageUrl" alt=""></a>
+                                </td>
+                                <td class="cart_description">
+                                    <h4><a href="">@product.Name</a></h4>
+                                    <p> артикул: @product.Id.ToString("0000000")</p>
+                                </td>
+                                <td class="cart_price">
+                                    <p>@product.Price.ToString("C")</p>
+                                </td>
+                                <td class="cart_quantity">
+                                    <div class="cart_quantity_button">
+                                        <p>@quantity</p>
+                                    </div>
+                                </td>
+                                <td class="cart_total">
+                                    <p class="cart_total_price">@((product.Price * quantity).ToString("C"))</p>
+                                </td>
+                                <td class="cart_description">
+                                    <h6><a asp-controller="Cart" asp-action="AddFromCart" asp-route-id="@product.Id" asp-route-count="0.1" asp-fragment="catalog"><i class="glyphicon glyphicon-chevron-up" aria-hidden="true"></i> 100 гр.</a></h6>
+                                    <h6><a asp-controller="Cart" asp-action="AddFromCart" asp-route-id="@product.Id" asp-route-count="0.5" asp-fragment="catalog"><i class="glyphicon glyphicon-chevron-up" aria-hidden="true"></i> 500 гр.</a></h6>
+                                    <h6><a asp-controller="Cart" asp-action="AddFromCart" asp-route-id="@product.Id" asp-route-count="1" asp-fragment="catalog"><i class="glyphicon glyphicon-chevron-up" aria-hidden="true"></i> 1 кг.</a></h6>
+                                </td>
+                                <td class="cart_description">
+                                    <h6><a asp-controller="Cart" asp-action="DecrementFromCart" asp-route-id="@product.Id" asp-route-count="0.1" asp-fragment="catalog"><i class="glyphicon glyphicon-chevron-down" aria-hidden="true"></i> 100 гр.</a></h6>
+                                    <h6><a asp-controller="Cart" asp-action="DecrementFromCart" asp-route-id="@product.Id" asp-route-count="0.5" asp-fragment="catalog"><i class="glyphicon glyphicon-chevron-down" aria-hidden="true"></i> 500 гр.</a></h6>
+                                    <h6><a asp-controller="Cart" asp-action="DecrementFromCart" asp-route-id="@product.Id" asp-route-count="1" asp-fragment="catalog"><i class="glyphicon glyphicon-chevron-down" aria-hidden="true"></i> 1 кг.</a></h6>
+                                </td>
+
+
+                                <td class="cart_delete">
+                                    <h4>
+                                        <a class="text-danger" asp-controller="Cart" asp-action="RemoveFromCart" asp-route-id="@product.Id" asp-fragment="catalog"><i class="glyphicon glyphicon-remove-sign" aria-hidden="true"></i></a>
+                                    </h4>
+                                </td>
+                            </tr>
+                        }
+                        <tr>
+                            <td class="cart_product">
+                            </td>
+                            <td class="cart_description">
+                                <h5>Общая стоимость заказа</h5>
+                            </td>
+                            <td class="cart_price">
+                            </td>
+                            <td class="cart_quantity">
+                            </td>
+                            <td class="cart_total">
+                                @{
+                                    decimal total = 0;
+                                    foreach (var (product, quantity) in Model.CartViewModel.Items)
+                                    {
+                                        decimal sum = (product.Price * quantity);
+                                        total = total + sum;
+                                    }
+
+                                    <p class="cart_total_price">@total.ToString("C")</p>
+                                }
+                            </td>
+                            <td class="cart_description">
+                            </td>
+                            <td class="cart_description">
+                            </td>
+                            <td class="cart_description">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <hr />
+            </div>
+        </div>
+    </section> <!--/#cart_items-->
+
+    <section id="do_action">
+        <div class="container">
+            <partial name="Partial/_CheckOut" model="@Model.OrderViewModel" view-data="@(new ViewDataDictionary(ViewData) { { "SumCart", total} })" />
+        </div>
+    </section>
+</div>
+
+
