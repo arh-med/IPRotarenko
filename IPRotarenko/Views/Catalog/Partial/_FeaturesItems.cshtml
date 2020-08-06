@@ -5,23 +5,23 @@
         <hr />
         <h2 class="title text-center">Продукция</h2>
         <hr />
-        @foreach (var product in Model)
-        {
-            <div class="col-sm-4">
-                <div class="product-image-wrapper">
-                    <div class="single-products">
-                        <div  class="productinfo text-center">
-                            <img src="~/img/product/@product.ImageUrl" alt="Товар" style="margin-top:20px; width:225px;height:215px;"  />
-                            <h2>@product.Price</h2>
-                            <p>@product.Name</p>
-                            <a asp-controller="Cart" asp-action="AddToCart" asp-route-id="@product.Id"   class="btn btn-default add-to-cart" > Добавить в корзину  </a>
-                        </div>
+        
+            @foreach (var product in Model)
+            {
+                <div class="col-sm-4">
+                    <div class="product-image-wrapper">
+                        <div class="single-products">
+                            <div class="productinfo text-center">
+                                <img src="~/img/product/@product.ImageUrl" alt="Товар" style="margin-top:20px; width:225px;height:215px;" />
+                                <h2>@product.Price</h2>
+                                <p>@product.Name</p>
+                                <a asp-controller="Cart" asp-action="AddToCart" asp-route-id="@product.Id" class="btn btn-default add-to-cart"> Добавить в корзину  </a>
+                            </div>
 
+                        </div>
                     </div>
                 </div>
-            </div>
-        }
-
-
+            }
+       
     </div>
 </div>

@@ -18,9 +18,7 @@
                 </div>
                 <!-- End Logo -->
             </div>
-            @{ 
-
-            }
+          
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse nav-collapse">
                 <div class="menu-container">
@@ -30,7 +28,16 @@
                         <li class="js_nav-item nav-item"><a asp-controller="Catalog" asp-action="Shop" asp-fragment="catalog" class="nav-item-child nav-item-hover">Магазин</a></li>
                         <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#document">Документы</a></li>
                         <li class="js_nav-item nav-item"><a class="nav-item-child nav-item-hover" href="#contact">Контакты</a></li>
-                        <li class="js_nav-item nav-item"><a asp-controller="Cart" asp-action="Details" asp-fragment="catalog" class="nav-item-child nav-item-hover">Корзина <i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i></a></li>
+                        <li class="js_nav-item nav-item">
+                            <a asp-controller="Cart" asp-action="Details" asp-fragment="catalog" class="nav-item-child nav-item-hover">
+                                Корзина 
+                                <i class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></i> 
+                                <label id="itemsCountLabel"></label>
+                                <script>
+                                    document.getElementById('itemsCountLabel').innerHTML = JSON.parse(ReadCookie("IPRotarenko.Cart")).ItemsCount;
+                                </script>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>

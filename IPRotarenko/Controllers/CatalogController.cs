@@ -26,7 +26,6 @@ namespace IPRotarenko.Controllers
               
             };
             var products = _ProductData.GetProducts(filter);
-
             return View(new CatalogViewModel
             {
                 SectionId = SectionId,
